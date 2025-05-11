@@ -1,0 +1,56 @@
+(index):64 cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation
+(anonymous) @ (index):64
+index.html:444 Access to fetch at 'file:///G:/My%20Drive/%D8%A7%D9%84%D8%B9%D9%85%D9%84/%D8%A7%D9%84%D9%85%D8%A7%D8%AF%D8%A9/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA/tests.json?v=1746980072028' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app.
+tests.json?v=1746980072028:1 
+            
+            
+           Failed to load resource: net::ERR_FAILED
+index.html:200 Failed to load tests from tests.json. Students will see no tests or fallback if implemented. Error: TypeError: Failed to fetch
+    at loadTestsData (index.html:192:44)
+    at initializeApp (index.html:164:19)
+    at index.html:432:9
+loadTestsData @ index.html:200
+index.html:1 Access to fetch at 'file:///G:/My%20Drive/%D8%A7%D9%84%D8%B9%D9%85%D9%84/%D8%A7%D9%84%D9%85%D8%A7%D8%AF%D8%A9/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA/tests.json?v=1746980075133' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app.
+tests.json?v=1746980075133:1 
+            
+            
+           Failed to load resource: net::ERR_FAILED
+index.html:183 Could not load initial tests from tests.json for admin: TypeError: Failed to fetch
+    at loadTestsData (index.html:178:48)
+    at HTMLButtonElement.<anonymous> (index.html:427:19)
+loadTestsData @ index.html:183
+[Report Only] Refused to frame 'https://docs.google.com/' because an ancestor violates the following Content Security Policy directive: "frame-ancestors 'none'".
+
+filesystem:https://docs.google.com/persistent/docs/fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbWmW.woff2:1 
+            
+            
+           Failed to load resource: net::ERR_FILE_NOT_FOUND
+filesystem:https://docs.google.com/persistent/docs/fonts/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuYjammW.woff2:1 
+            
+            
+           Failed to load resource: net::ERR_FILE_NOT_FOUND
+filesystem:https://docs.google.com/persistent/docs/fonts/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLoHQiAo.woff2:1 
+            
+            
+           Failed to load resource: net::ERR_FILE_NOT_FOUND
+filesystem:https://docs.google.com/persistent/docs/fonts/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLmbXiAo.woff2:1 
+            
+            
+           Failed to load resource: net::ERR_FILE_NOT_FOUND
+index.html:379 --- بيانات الاختبارات للنشر (انسخ هذا إلى ملف tests.json) ---
+index.html:380 [
+  {
+    "id": 1746980127916,
+    "name": "علوم ثاني متوسط",
+    "link": "https://forms.gle/k8Ue6TkBzEbQTV516",
+    "class": "أول متوسط",
+    "startTime": "2025-05-11T16:15:00.000Z",
+    "endTime": "2025-05-11T16:20:00.000Z"
+  }
+]
+
+                
+          
+          
+          
+         Chrome is moving towards a new experience that allows users to choose to browse without third-party cookies.

@@ -9,62 +9,26 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #f0f4f8; /* لون خلفية أفتح قليلاً */
+            background-color: #f0f4f8;
         }
-        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-            filter: invert(0.6);
-        }
-        .btn {
-            @apply px-6 py-3 rounded-lg shadow-md font-semibold transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-opacity-75;
-        }
-        .btn-primary {
-            @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
-        }
-        .btn-secondary {
-            @apply bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500;
-        }
-        .btn-danger {
-            @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
-        }
-        .btn-warning {
-            @apply bg-yellow-500 text-white hover:bg-yellow-600 focus:ring-yellow-400;
-        }
-        .btn-class-selector {
-            @apply bg-teal-500 text-white hover:bg-teal-600 focus:ring-teal-400 w-full sm:w-auto text-lg;
-        }
-        .btn-class-selector.active {
-            @apply bg-teal-700 ring-2 ring-teal-300;
-        }
-        .status-upcoming {
-            @apply bg-yellow-100 border-yellow-500 text-yellow-700;
-        }
-        .status-active {
-            @apply bg-green-100 border-green-500 text-green-700;
-        }
-        .status-expired {
-            @apply bg-red-100 border-red-500 text-red-700;
-        }
-        .form-input, .form-select {
-            @apply mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
-        }
-        .card {
-            @apply bg-white shadow-xl rounded-xl p-6 md:p-8 mb-6;
-        }
-        .test-iframe {
-            width: 100%;
-            height: 75vh; /* زيادة ارتفاع الإطار */
-            border: 1px solid #cbd5e1; /* Tailwind gray-300 */
-            border-radius: 0.5rem; /* rounded-lg */
-        }
-        #adminSection {
-            display: none; /* مخفي بشكل افتراضي */
-            border-top: 2px dashed #9ca3af; /* Tailwind gray-400 */
-            padding-top: 2rem;
-            margin-top: 2rem;
-        }
-        .header-gradient {
-            background: linear-gradient(to right, #3b82f6, #10b981); /* تدرج لوني للأزرق والأخضر */
-        }
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator { filter: invert(0.6); }
+        .btn { @apply px-6 py-3 rounded-lg shadow-md font-semibold transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-opacity-75; }
+        .btn-primary { @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500; }
+        .btn-secondary { @apply bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500; }
+        .btn-success { @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500; }
+        .btn-danger { @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500; }
+        .btn-warning { @apply bg-yellow-500 text-white hover:bg-yellow-600 focus:ring-yellow-400; }
+        .btn-class-selector { @apply bg-teal-500 text-white hover:bg-teal-600 focus:ring-teal-400 w-full sm:w-auto text-lg; }
+        .btn-class-selector.active { @apply bg-teal-700 ring-2 ring-teal-300; }
+        .status-upcoming { @apply bg-yellow-100 border-yellow-500 text-yellow-700; }
+        .status-active { @apply bg-green-100 border-green-500 text-green-700; }
+        .status-expired { @apply bg-red-100 border-red-500 text-red-700; }
+        .form-input, .form-select { @apply mt-1 block w-full px-4 py-3 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm; }
+        .card { @apply bg-white shadow-xl rounded-xl p-6 md:p-8 mb-6; }
+        .test-iframe { width: 100%; height: 75vh; border: 1px solid #cbd5e1; border-radius: 0.5rem; }
+        #adminSection { display: none; border-top: 2px dashed #9ca3af; padding-top: 2rem; margin-top: 2rem; }
+        .header-gradient { background: linear-gradient(to right, #3b82f6, #10b981); }
+        .instruction-box { @apply mt-4 p-4 bg-amber-50 border border-amber-300 rounded-lg text-amber-700 text-sm; }
     </style>
 </head>
 <body class="antialiased">
@@ -94,7 +58,20 @@
             </div>
 
             <div id="adminSection">
-                <div class="card">
+                <div class="instruction-box">
+                    <h3 class="font-semibold mb-2">تعليمات هامة للمعلم:</h3>
+                    <ol class="list-decimal list-inside space-y-1">
+                        <li>لإتاحة الاختبارات للطلاب على GitHub Pages، يجب عليك إنشاء/تحديث ملف باسم `tests.json` في مستودعك.</li>
+                        <li>استخدم نموذج "إضافة اختبار جديد" أدناه لإنشاء وتعديل الاختبارات. ستُحفظ هذه التغييرات مؤقتًا في نسخة عمل بمتصفحك.</li>
+                        <li>عندما تكون جاهزًا لنشر التغييرات، اضغط على زر "إعداد البيانات للنشر".</li>
+                        <li>سيتم طباعة محتوى نسخة العمل (بيانات الاختبارات) بتنسيق JSON في لوحة تحكم المطور (Developer Console).</li>
+                        <li>انسخ هذا المحتوى بالكامل.</li>
+                        <li>افتح ملف `tests.json` في مستودعك على GitHub (أو أنشئه إذا لم يكن موجودًا)، ثم الصق المحتوى المنسوخ فيه، واستبدل أي محتوى قديم.</li>
+                        <li>احفظ التغييرات في ملف `tests.json` وقم برفعه (commit & push) إلى مستودعك على GitHub.</li>
+                        <li>**هام جداً:** قم بتغيير كلمة المرور الافتراضية `ADMIN_PASSWORD` في كود ملف HTML هذا إلى كلمة مرور قوية.</li>
+                    </ol>
+                </div>
+                <div class="card mt-6">
                     <h2 class="text-2xl font-semibold text-gray-700 mb-6">إضافة اختبار جديد (خاص بالمعلم)</h2>
                     <form id="addTestForm" class="space-y-6">
                         <div>
@@ -104,7 +81,6 @@
                         <div>
                             <label for="testLink" class="block text-sm font-medium text-gray-700">رابط نموذج جوجل:</label>
                             <input type="url" id="testLink" name="testLink" class="form-input" required placeholder="https://docs.google.com/forms/d/e/your-form-id/viewform">
-                            <p class="mt-1 text-xs text-gray-500">تأكد أن الرابط هو رابط النموذج المباشر (عادةً ينتهي بـ /viewform).</p>
                         </div>
                         <div>
                             <label for="testClass" class="block text-sm font-medium text-gray-700">الفصل الدراسي:</label>
@@ -125,21 +101,12 @@
                                 <input type="datetime-local" id="endTime" name="endTime" class="form-input" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary w-full md:w-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
-                            </svg>
-                            إضافة الاختبار
-                        </button>
+                        <button type="submit" class="btn btn-primary w-full md:w-auto">إضافة الاختبار لنسخة العمل</button>
                     </form>
                 </div>
-                <div class="mt-10 text-center">
-                    <button id="clearAllTestsBtn" class="btn btn-warning">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-2" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                        </svg>
-                        مسح جميع الاختبارات (من المتصفح)
-                    </button>
+                <div class="mt-6 text-center space-x-4 rtl:space-x-reverse">
+                    <button id="prepareForDeploymentBtn" class="btn btn-success">إعداد البيانات للنشر (في Console)</button>
+                    <button id="clearAllTestsBtn" class="btn btn-warning">مسح نسخة العمل الحالية بالمتصفح</button>
                 </div>
             </div>
         </main>
@@ -147,48 +114,119 @@
         <footer class="p-4 text-center">
             <button id="toggleAdminViewBtn" class="btn btn-secondary text-sm">تبديل إلى وضع المعلم</button>
             <div class="mt-4 p-4 bg-sky-50 border border-sky-200 rounded-lg text-sky-700 text-sm">
-                <p><strong>ملاحظة هامة:</strong> يتم تخزين بيانات الاختبارات في المتصفح المحلي. هذه الصفحة تتحكم في عرض نموذج جوجل أو إخفائه بناءً على الوقت والفصل. **لإيقاف استقبال الردود بشكل كامل في نموذج جوجل، يجب عليك ضبط إعدادات النموذج نفسه في Google Forms.**</p>
+                <p><strong>ملاحظة هامة للطلاب:</strong> إذا كان الاختبار نشطًا، سيُسمح لك بمحاولة واحدة فقط من هذا المتصفح. لضمان عدالة التقييم، يُفضل أن يقوم المعلم بتفعيل خيار "Limit to 1 response" في إعدادات نموذج جوجل.</p>
+                <p class="mt-1"><strong>ملاحظة للمعلم:</strong> البيانات النهائية للطلاب يتم جلبها من ملف `tests.json` في المستودع. اتبع التعليمات في "وضع المعلم" لتحديث هذا الملف.</p>
             </div>
         </footer>
     </div>
 
     <script>
-        // عناصر DOM
+        // --- TEACHER INSTRUCTIONS ---
+        // 1. Create a file named 'tests.json' in the root of your GitHub repository (next to this HTML file).
+        //    This file will store the tests data for students.
+        //    Example 'tests.json' content:
+        //    [
+        //      {"id": 1620000000000, "name": "اختبار علوم تجريبي", "link": "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform", "class": "أول متوسط", "startTime": "2025-12-01T10:00:00.000Z", "endTime": "2025-12-01T12:00:00.000Z"},
+        //      {"id": 1620000000001, "name": "اختبار أحياء", "link": "https://docs.google.com/forms/d/e/ANOTHER_FORM_ID/viewform", "class": "ثاني متوسط", "startTime": "2025-12-05T09:00:00.000Z", "endTime": "2025-12-05T11:00:00.000Z"}
+        //    ]
+        // 2. Use the "إضافة اختبار جديد" form in "وضع المعلم" to create/edit tests. These are saved to your browser's local storage ('adminWorkingCopyTests').
+        // 3. When ready to publish, click "إعداد البيانات للنشر". This logs the JSON data to the browser's console.
+        // 4. Copy this JSON data from the console.
+        // 5. Paste it into your 'tests.json' file in your GitHub repository, replacing its previous content.
+        // 6. Commit and push the updated 'tests.json' file to GitHub.
+        // 7. **VERY IMPORTANT**: Change the ADMIN_PASSWORD below to a strong, unique password.
+
+        const ADMIN_PASSWORD = "7295"; // !!! قم بتغيير كلمة المرور هذه فوراً !!!
+        const TESTS_JSON_PATH = 'tests.json'; // Path to your tests data file
+
+        // DOM Elements (same as before)
         const addTestForm = document.getElementById('addTestForm');
         const testListDiv = document.getElementById('testList');
         const noTestsMessage = document.getElementById('noTestsMessage');
         const clearAllTestsBtn = document.getElementById('clearAllTestsBtn');
         const classSelectorDiv = document.getElementById('classSelector');
         const selectedClassNameP = document.getElementById('selectedClassName');
-        const studentSection = document.getElementById('studentSection'); // تم تعريفه هنا
+        const studentSection = document.getElementById('studentSection');
         const adminSection = document.getElementById('adminSection');
         const toggleAdminViewBtn = document.getElementById('toggleAdminViewBtn');
+        const prepareForDeploymentBtn = document.getElementById('prepareForDeploymentBtn');
 
-        let tests = JSON.parse(localStorage.getItem('tests')) || [];
+        let allTestsData = []; // This will hold data from tests.json or fallback
+        let adminWorkingCopy = []; // For admin's local storage edits
         let selectedClass = null;
         let isAdminView = false;
-        // كلمة مرور المعلم - قم بتغييرها إلى كلمة مرور قوية
-        // هام: هذه الكلمة ستكون ظاهرة في كود المصدر.
-        const ADMIN_PASSWORD = "7295"; 
 
-        function saveTests() {
-            localStorage.setItem('tests', JSON.stringify(tests));
+        async function initializeApp() {
+            isAdminView = sessionStorage.getItem('isAdminViewActive') === 'true';
+            if (isAdminView) {
+                enableAdminViewFeatures(); // Bypasses password if session active
+            }
+            await loadTestsData(); // Load from tests.json or fallback
+            renderTests();
+            // updateTestStatuses(); // Initial status update, renderTests calls this
+        }
+        
+        async function loadTestsData() {
+            if (isAdminView) {
+                // Admin works with a local storage copy, initialized from tests.json if empty
+                const localCopy = localStorage.getItem('adminWorkingCopyTests');
+                if (localCopy) {
+                    adminWorkingCopy = JSON.parse(localCopy);
+                } else {
+                    // Try to fetch from tests.json to initialize admin's working copy
+                    try {
+                        const response = await fetch(TESTS_JSON_PATH + `?v=${Date.now()}`); // Cache buster
+                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                        adminWorkingCopy = await response.json();
+                        if (!Array.isArray(adminWorkingCopy)) adminWorkingCopy = [];
+                    } catch (error) {
+                        console.warn(`Could not load initial tests from ${TESTS_JSON_PATH} for admin:`, error);
+                        adminWorkingCopy = []; // Start with empty if fetch fails
+                    }
+                    localStorage.setItem('adminWorkingCopyTests', JSON.stringify(adminWorkingCopy));
+                }
+                allTestsData = adminWorkingCopy; // Admin view shows their working copy
+            } else {
+                // Students always try to fetch the latest tests.json
+                try {
+                    const response = await fetch(TESTS_JSON_PATH + `?v=${Date.now()}`); // Cache buster for students
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    allTestsData = await response.json();
+                    if (!Array.isArray(allTestsData)) {
+                         console.error("Fetched tests.json is not an array. Using empty array.", allTestsData);
+                         allTestsData = [];
+                    }
+                } catch (error) {
+                    console.error(`Failed to load tests from ${TESTS_JSON_PATH}. Students will see no tests or fallback if implemented. Error:`, error);
+                    allTestsData = []; // Fallback to empty array if tests.json fails
+                    noTestsMessage.textContent = "خطأ في تحميل قائمة الاختبارات. يرجى المحاولة لاحقًا أو إبلاغ المعلم.";
+                    noTestsMessage.style.display = 'block';
+                }
+            }
+        }
+
+        function saveAdminWorkingCopy() {
+            if (isAdminView) {
+                localStorage.setItem('adminWorkingCopyTests', JSON.stringify(adminWorkingCopy));
+            }
         }
 
         function renderTests() {
             testListDiv.innerHTML = '';
             let testsToDisplay = [];
 
+            const sourceData = isAdminView ? adminWorkingCopy : allTestsData;
+
             if (isAdminView) {
-                testsToDisplay = [...tests]; 
-                 noTestsMessage.textContent = testsToDisplay.length === 0 ? "لم يتم إضافة أي اختبارات حتى الآن." : "";
+                testsToDisplay = [...sourceData];
+                noTestsMessage.textContent = testsToDisplay.length === 0 ? "لا توجد اختبارات في نسخة العمل الحالية. أضف اختبارًا أو قم بتحميلها من `tests.json` إذا كانت فارغة." : "";
             } else if (selectedClass) {
-                testsToDisplay = tests.filter(test => test.class === selectedClass);
+                testsToDisplay = sourceData.filter(test => test.class === selectedClass);
                 noTestsMessage.textContent = testsToDisplay.length === 0 ? `لا توجد اختبارات متاحة حاليًا لفصل ${selectedClass}.` : "";
-            } else {
+            } else { // Student view, no class selected
                 noTestsMessage.textContent = "يرجى اختيار فصلك الدراسي لعرض الاختبارات المتاحة.";
                 noTestsMessage.style.display = 'block';
-                return; 
+                return;
             }
             
             noTestsMessage.style.display = testsToDisplay.length === 0 ? 'block' : 'none';
@@ -198,10 +236,10 @@
                 const testElement = createTestElement(test);
                 testListDiv.appendChild(testElement);
             });
-            updateTestStatuses();
+            // updateTestStatuses(); // Not strictly needed here as createTestElement sets initial state
         }
 
-        function createTestElement(test) {
+        function createTestElement(test) { // Largely same as before
             const div = document.createElement('div');
             div.className = 'card test-item p-5 border rounded-lg shadow-lg';
             div.dataset.testId = test.id;
@@ -210,108 +248,78 @@
             const startTime = new Date(test.startTime);
             const endTime = new Date(test.endTime);
 
-            let statusText = '';
-            let statusClass = '';
-            let contentHtml = '';
-
+            let statusText = '', statusClass = '', contentHtml = '';
             const embedLink = test.link.includes('?') ? test.link + '&embedded=true' : test.link + '?embedded=true';
+            const attemptKey = `attempted_test_${test.id}`;
+            const hasAttempted = localStorage.getItem(attemptKey) === 'true';
 
             if (now < startTime) {
                 statusText = `سيبدأ في: ${startTime.toLocaleString('ar-SA', { dateStyle: 'medium', timeStyle: 'short' })}`;
                 statusClass = 'status-upcoming';
-                contentHtml = `<p class="text-gray-600 mt-4 text-center py-3">الاختبار لم يبدأ بعد. سيكون متاحًا للعرض هنا عند بدء الوقت المحدد.</p>`;
+                contentHtml = `<p class="text-gray-600 mt-4 text-center py-3">الاختبار لم يبدأ بعد.</p>`;
             } else if (now >= startTime && now <= endTime) {
-                statusText = 'نشط الآن - بالتوفيق!';
+                statusText = 'نشط الآن';
                 statusClass = 'status-active';
-                contentHtml = `<iframe id="iframe-${test.id}" src="${embedLink}" class="test-iframe mt-4" title="نموذج اختبار: ${test.name}"></iframe>
-                               <p class="text-xs text-gray-500 mt-1 text-center">إذا واجهتك مشكلة في عرض النموذج، تأكد من اتصالك بالإنترنت.</p>`;
+                if (!isAdminView && hasAttempted) {
+                    contentHtml = `<p class="text-orange-600 mt-4 text-center py-3 font-semibold">لقد قمت بمحاولة هذا الاختبار من قبل على هذا المتصفح.</p>`;
+                } else if (!isAdminView) {
+                     contentHtml = `<div class="text-center mt-4"><button data-testid="${test.id}" data-embedlink="${embedLink}" data-testname="${test.name}" class="start-test-btn btn btn-success">بدء الاختبار - حظاً موفقاً!</button></div>`;
+                } else { 
+                    contentHtml = `<iframe src="${embedLink}" class="test-iframe mt-4" title="نموذج اختبار: ${test.name}"></iframe>`;
+                }
             } else {
                 statusText = `انتهى في: ${endTime.toLocaleString('ar-SA', { dateStyle: 'medium', timeStyle: 'short' })}`;
                 statusClass = 'status-expired';
-                contentHtml = `<p class="text-gray-600 mt-4 text-center py-3">انتهى وقت هذا الاختبار. لم يعد النموذج معروضًا.</p>`;
+                contentHtml = `<p class="text-gray-600 mt-4 text-center py-3">انتهى وقت هذا الاختبار.</p>`;
             }
 
             div.innerHTML = `
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 pb-3 border-b">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2 sm:mb-0">${test.name} ${isAdminView ? '('+test.class+')' : ''}</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 sm:mb-0">${test.name} ${isAdminView ? '<span class="text-sm text-blue-500">('+test.class+')</span>' : ''}</h3>
                     <span class="status-badge text-sm font-medium px-4 py-1.5 rounded-full border ${statusClass}">${statusText}</span>
                 </div>
-                ${ isAdminView ? `
-                <div class="text-xs text-gray-500 mb-2">
-                    <p><strong>الرابط:</strong> <a href="${test.link}" target="_blank" class="text-blue-500 hover:underline">${test.link}</a></p>
+                ${isAdminView ? `
+                <div class="text-xs text-gray-500 mb-2 break-all">
+                    <p><strong>الرابط:</strong> <a href="${test.link}" target="_blank" class="text-blue-600 hover:underline">${test.link}</a></p>
+                    <p><strong>الفصل:</strong> ${test.class}</p>
                     <p><strong>يبدأ:</strong> ${startTime.toLocaleString('ar-SA', { dateStyle: 'full', timeStyle: 'short' })}</p>
                     <p><strong>ينتهي:</strong> ${endTime.toLocaleString('ar-SA', { dateStyle: 'full', timeStyle: 'short' })}</p>
                 </div>` : ''}
-                <div class="mt-4 test-content-container">
+                <div class="mt-4 test-content-container" id="content-${test.id}">
                     ${contentHtml}
                 </div>
                 ${isAdminView ? `
-                <button class="delete-test-btn btn btn-danger mt-4 text-sm px-4 py-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                    </svg>
-                    حذف
-                </button>` : ''}
+                <button class="delete-test-btn btn btn-danger mt-4 text-sm px-4 py-2">حذف من نسخة العمل</button>` : ''}
             `;
 
             if (isAdminView) {
                 div.querySelector('.delete-test-btn')?.addEventListener('click', () => {
-                    if (confirm(`هل أنت متأكد أنك تريد حذف اختبار "${test.name}"؟`)) {
-                        deleteTest(test.id);
+                    if (confirm(`هل أنت متأكد أنك تريد حذف اختبار "${test.name}" من نسخة العمل الحالية؟ لن يؤثر هذا على ملف 'tests.json' حتى تقوم بتحديثه يدويًا.`)) {
+                        deleteTestFromWorkingCopy(test.id);
                     }
                 });
+            } else { // Student view
+                const startButton = div.querySelector('.start-test-btn');
+                if (startButton) {
+                    startButton.addEventListener('click', function() {
+                        localStorage.setItem(`attempted_test_${this.dataset.testid}`, 'true');
+                        const contentDiv = document.getElementById(`content-${this.dataset.testid}`);
+                        if (contentDiv) {
+                            contentDiv.innerHTML = `<iframe src="${this.dataset.embedlink}" class="test-iframe mt-4" title="نموذج اختبار: ${this.dataset.testname}"></iframe>
+                                                  <p class="text-xs text-gray-500 mt-1 text-center">إذا واجهتك مشكلة في عرض النموذج، تأكد من اتصالك بالإنترنت.</p>`;
+                        }
+                        this.remove(); 
+                    });
+                }
             }
             return div;
         }
-
-        function updateTestStatuses() {
-            const now = new Date();
-            document.querySelectorAll('.test-item').forEach(testElement => {
-                const testId = parseInt(testElement.dataset.testId);
-                const test = tests.find(t => t.id === testId);
-                if (!test) return;
-
-                if (!isAdminView && selectedClass && test.class !== selectedClass) {
-                    return;
-                }
-
-                const startTime = new Date(test.startTime);
-                const endTime = new Date(test.endTime);
-                const statusBadge = testElement.querySelector('.status-badge');
-                const contentContainer = testElement.querySelector('.test-content-container');
-
-                let newStatusText = '';
-                let newStatusClass = '';
-                let newContentHtml = '';
-                const embedLink = test.link.includes('?') ? test.link + '&embedded=true' : test.link + '?embedded=true';
-
-                if (now < startTime) {
-                    newStatusText = `سيبدأ في: ${startTime.toLocaleString('ar-SA', { dateStyle: 'medium', timeStyle: 'short' })}`;
-                    newStatusClass = 'status-upcoming';
-                    newContentHtml = `<p class="text-gray-600 mt-4 text-center py-3">الاختبار لم يبدأ بعد. سيكون متاحًا للعرض هنا عند بدء الوقت المحدد.</p>`;
-                } else if (now >= startTime && now <= endTime) {
-                    newStatusText = 'نشط الآن - بالتوفيق!';
-                    newStatusClass = 'status-active';
-                    newContentHtml = `<iframe id="iframe-${test.id}" src="${embedLink}" class="test-iframe mt-4" title="نموذج اختبار: ${test.name}"></iframe>
-                                   <p class="text-xs text-gray-500 mt-1 text-center">إذا واجهتك مشكلة في عرض النموذج، تأكد من اتصالك بالإنترنت.</p>`;
-                } else {
-                    newStatusText = `انتهى في: ${endTime.toLocaleString('ar-SA', { dateStyle: 'medium', timeStyle: 'short' })}`;
-                    newStatusClass = 'status-expired';
-                    newContentHtml = `<p class="text-gray-600 mt-4 text-center py-3">انتهى وقت هذا الاختبار. لم يعد النموذج معروضًا.</p>`;
-                }
-
-                if (statusBadge && statusBadge.textContent !== newStatusText) {
-                    statusBadge.textContent = newStatusText;
-                    statusBadge.className = `status-badge text-sm font-medium px-4 py-1.5 rounded-full border ${newStatusClass}`;
-                    if(contentContainer) contentContainer.innerHTML = newContentHtml;
-                } else if (newStatusClass === 'status-active' && contentContainer && !contentContainer.querySelector('iframe')) {
-                    if(contentContainer) contentContainer.innerHTML = newContentHtml;
-                }
-            });
-        }
-
+        
+        // addTestForm event listener (for admin)
         addTestForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            if (!isAdminView) return;
+
             const name = document.getElementById('testName').value.trim();
             let link = document.getElementById('testLink').value.trim();
             const testClass = document.getElementById('testClass').value;
@@ -319,99 +327,117 @@
             const endTimeValue = document.getElementById('endTime').value;
 
             if (!name || !link || !testClass || !startTimeValue || !endTimeValue) {
-                alert('يرجى ملء جميع الحقول.');
-                return;
+                alert('يرجى ملء جميع الحقول.'); return;
             }
             const startTime = new Date(startTimeValue);
             const endTime = new Date(endTimeValue);
             if (endTime <= startTime) {
-                alert('تاريخ ووقت الانتهاء يجب أن يكون بعد تاريخ ووقت البدء.');
-                return;
+                alert('تاريخ ووقت الانتهاء يجب أن يكون بعد تاريخ ووقت البدء.'); return;
             }
             try {
                 new URL(link);
                 if (link.includes('/edit')) link = link.replace('/edit', '/viewform');
             } catch (_) {
-                alert("الرجاء إدخال رابط URL صحيح.");
-                return;
+                alert("الرجاء إدخال رابط URL صحيح."); return;
             }
-            const newTest = { id: Date.now(), name, link, class: testClass, startTime: startTime.toISOString(), endTime: endTime.toISOString() };
-            tests.push(newTest);
-            saveTests();
-            renderTests(); 
+            
+            const newTest = { 
+                id: Date.now(), // Simple ID, ensure uniqueness if merging from multiple sources
+                name, 
+                link, 
+                class: testClass, 
+                startTime: startTime.toISOString(), 
+                endTime: endTime.toISOString() 
+            };
+            adminWorkingCopy.push(newTest); // Add to admin's working copy
+            saveAdminWorkingCopy(); 
+            renderTests(); // Re-render admin view
             addTestForm.reset();
+            alert("تمت إضافة الاختبار إلى نسخة العمل المحلية. لا تنسَ 'إعداد البيانات للنشر' وتحديث ملف 'tests.json' في المستودع.");
         });
 
-        function deleteTest(testId) {
-            tests = tests.filter(test => test.id !== testId);
-            saveTests();
+        function deleteTestFromWorkingCopy(testId) {
+            if (!isAdminView) return;
+            adminWorkingCopy = adminWorkingCopy.filter(test => test.id !== testId);
+            saveAdminWorkingCopy();
             renderTests();
         }
         
         clearAllTestsBtn.addEventListener('click', () => {
-            if (tests.length === 0) {
-                alert("لا توجد اختبارات لمسحها.");
-                return;
-            }
-            if (confirm("هل أنت متأكد أنك تريد مسح جميع الاختبارات؟ هذا الإجراء لا يمكن التراجع عنه.")) {
-                tests = [];
-                saveTests();
+            if (!isAdminView) return;
+            if (confirm("هل أنت متأكد أنك تريد مسح جميع الاختبارات من نسخة العمل الحالية في المتصفح؟ هذا لن يؤثر على ملف `tests.json`.")) {
+                adminWorkingCopy = [];
+                saveAdminWorkingCopy();
                 renderTests();
-                alert("تم مسح جميع الاختبارات بنجاح.");
+                alert("تم مسح اختبارات نسخة العمل من المتصفح.");
             }
+        });
+        
+        prepareForDeploymentBtn.addEventListener('click', () => {
+            if (!isAdminView) return;
+            const dataToDeploy = JSON.stringify(adminWorkingCopy, null, 2); // Prettify JSON from admin's working copy
+            console.log("--- بيانات الاختبارات للنشر (انسخ هذا إلى ملف tests.json) ---");
+            console.log(dataToDeploy);
+            alert("تم طباعة بيانات الاختبارات (من نسخة العمل الحالية) في لوحة تحكم المطور (Developer Console).\nقم بنسخها وتحديث ملف `tests.json` في مستودع GitHub الخاص بك.");
         });
 
         classSelectorDiv.addEventListener('click', (e) => {
             if (e.target.tagName === 'BUTTON') {
                 selectedClass = e.target.dataset.class;
                 selectedClassNameP.textContent = `الاختبارات المتاحة لفصل: ${selectedClass}`;
-                
-                document.querySelectorAll('#classSelector button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
+                document.querySelectorAll('#classSelector button').forEach(btn => btn.classList.remove('active'));
                 e.target.classList.add('active');
-
                 renderTests(); 
             }
         });
+        
+        function enableAdminViewFeatures() {
+            adminSection.style.display = 'block';
+            studentSection.style.display = 'none';
+            selectedClassNameP.textContent = 'وضع المعلم: إدارة الاختبارات (نسخة العمل)';
+            toggleAdminViewBtn.textContent = 'تبديل إلى وضع الطالب';
+            toggleAdminViewBtn.classList.remove('btn-secondary');
+            toggleAdminViewBtn.classList.add('btn-primary');
+            sessionStorage.setItem('isAdminViewActive', 'true');
+        }
 
-        toggleAdminViewBtn.addEventListener('click', () => {
-            if (!isAdminView) { // إذا كان المستخدم يحاول الدخول لوضع المعلم
+        function disableAdminViewFeatures() {
+            adminSection.style.display = 'none';
+            studentSection.style.display = 'block';
+            selectedClassNameP.textContent = selectedClass ? `الاختبارات المتاحة لفصل: ${selectedClass}` : '';
+            toggleAdminViewBtn.textContent = 'تبديل إلى وضع المعلم';
+            toggleAdminViewBtn.classList.remove('btn-primary');
+            toggleAdminViewBtn.classList.add('btn-secondary');
+            sessionStorage.removeItem('isAdminViewActive');
+        }
+
+        toggleAdminViewBtn.addEventListener('click', async () => {
+            if (!isAdminView) {
                 const password = prompt("الرجاء إدخال كلمة مرور المعلم:");
                 if (password === ADMIN_PASSWORD) {
                     isAdminView = true;
-                } else if (password !== null) { // إذا أدخل كلمة مرور ولم يضغط إلغاء
-                    alert("كلمة المرور غير صحيحة.");
-                    return; // لا تقم بالتبديل
-                } else {
-                    return; // إذا ضغط المستخدم على "إلغاء" في مربع كلمة المرور
-                }
-            } else { // إذا كان المعلم يخرج من وضع المعلم
-                isAdminView = false;
-            }
-
-            // تحديث الواجهة بناءً على حالة isAdminView
-            if (isAdminView) {
-                adminSection.style.display = 'block';
-                studentSection.style.display = 'none';
-                selectedClassNameP.textContent = 'عرض جميع الاختبارات (وضع المعلم)';
-                toggleAdminViewBtn.textContent = 'تبديل إلى وضع الطالب';
-                toggleAdminViewBtn.classList.remove('btn-secondary');
-                toggleAdminViewBtn.classList.add('btn-primary');
+                    enableAdminViewFeatures();
+                } else if (password !== null) {
+                    alert("كلمة المرور غير صحيحة."); return;
+                } else { return; }
             } else {
-                adminSection.style.display = 'none';
-                studentSection.style.display = 'block';
-                selectedClassNameP.textContent = selectedClass ? `الاختبارات المتاحة لفصل: ${selectedClass}` : '';
-                toggleAdminViewBtn.textContent = 'تبديل إلى وضع المعلم';
-                toggleAdminViewBtn.classList.remove('btn-primary');
-                toggleAdminViewBtn.classList.add('btn-secondary');
+                isAdminView = false;
+                disableAdminViewFeatures();
             }
+            await loadTestsData(); // Reload tests based on new view mode
             renderTests();
         });
 
-        // العرض الأولي
-        renderTests(); 
-        setInterval(updateTestStatuses, 1000); 
+        // Initial Load
+        initializeApp();
+
+        // Periodic refresh for student view to catch time changes
+        setInterval(async () => {
+            if (!isAdminView && document.visibilityState === 'visible') {
+                await loadTestsData(); // Re-fetch tests.json for students
+                renderTests(); 
+            }
+        }, 60000); // Refresh student view every 60 seconds
     </script>
 </body>
 </html>
